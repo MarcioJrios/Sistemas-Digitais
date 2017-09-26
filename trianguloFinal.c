@@ -4,12 +4,12 @@ typedef struct{
 	int x, y;
 }ponto;
 
-	//|p1.x  p1.y 1|p1.x  p1.y
-	//|p2.x  p2.y 1|p2.x  p2.y 
-	//|p3.x  p3.y 1|p3.x  p3.y
+	//|a.x  a.y 1|a.x  a.y
+	//|b.x  b.y 1|b.x  b.y 
+	//|c.x  c.y 1|c.x  c.y
 int calculaArea(ponto a, ponto b, ponto c){
 	int A;
-	A = ((a.x * b.y) + (a.y * b.x) + (a.x * b.y)) - ((a.y * b.x) + (a.x * c.y) + (b.y * c.x));
+	A = ((a.x * b.y) + (a.y * c.x) + (b.x * c.y)) - ((a.y * b.x) + (a.x * c.y) + (b.y * c.x));
 	return A;
 }
 
@@ -20,21 +20,33 @@ int main(){
 	ponto p;
 	int i;
 	int j;
-	int area = calculaArea(a, b, c);
 	a.x = 12;
 	a.y = 5;
 	b.x = 5;
 	b.y = 16;
 	c.x = 2;
 	c.y = 2;
+	int area = calculaArea(a, b, c);
+	if(area < 0)
+		area = -area;
+		printf("%d\n", area);
 	int AB, AC, BC;
 	for(i = 0; i < 20; i++){
 		for(j = 0; j < 20; j++){
 		p.x = i;
 		p.y = j;
 		AB = calculaArea(a, b, p);
+		if(AB < 0)
+			AB = -AB;
+		//printf("AB:%d   \n", AB);
 		AC = calculaArea(a, c, p);
+		if(AB < 0)
+			AC = -AC;
+		//printf("AC:%d   \n", AC);
 		BC = calculaArea(b, c, p);
+		if(AB < 0)
+			BC = -BC;
+		//printf("BC:%d   \n", BC);
 		if(AB + AC + BC == area)
 			printf("* ");
 		else
@@ -43,6 +55,3 @@ int main(){
 		printf("\n");
 	}
 }
-			
-	
-	

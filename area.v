@@ -8,8 +8,9 @@ module area(
    output [17:0] area
 );
 
-always @( ax or bx .. ) 
-
+always @( ax or bx or cx or ay or by or cy ) begin
+	area = ((ax * by) + (ay * cx) + (bx * cy)) - ((ay * bx) + (ax * cy) + (by * cx));
+end
 // 
 
 endmodule

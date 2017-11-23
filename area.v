@@ -5,11 +5,11 @@ module area(
    input [8:0] ay,
    input [8:0] by,
    input [8:0] cy,
-   output [17:0] area
+   output [8:0] Area
 );
 
 always @( ax or bx or cx or ay or by or cy ) begin
-	area = ((ax * by) + (ay * cx) + (bx * cy)) - ((ay * bx) + (ax * cy) + (by * cx));
+	Area = ((ax * by) + (ay * cx) + (bx * cy)) - ((ay * bx) + (ax * cy) + (by * cx));
 end
 // 
 

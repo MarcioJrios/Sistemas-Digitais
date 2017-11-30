@@ -3,12 +3,12 @@ module testbench;
 	reg [8:0] px;
 	reg [8:0] py;
 	reg [8:0] ax;
-    reg [8:0] bx;
-    reg [8:0] cx;
-    reg [8:0] ay;
-    reg [8:0] by;
-    reg [8:0] cy;
-    reg S;
+    	reg [8:0] bx;
+    	reg [8:0] cx;
+    	reg [8:0] ay;
+    	reg [8:0] by;
+    	reg [8:0] cy;
+    	wire S;
     
     triangulo P(clk, ax, bx, cx, ay, by, cy, S);
 always @(posedge clk) begin
@@ -38,4 +38,3 @@ initial begin
 end
 
 endmodule
-			

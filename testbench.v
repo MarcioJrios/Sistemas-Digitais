@@ -1,5 +1,5 @@
 module testbench;
-	reg clk;
+	reg [6:0] clk;
 	reg [8:0] px;
 	reg [8:0] py;
 	reg [8:0] ax;
@@ -8,11 +8,11 @@ module testbench;
     	reg [8:0] ay;
     	reg [8:0] by;
     	reg [8:0] cy;
+	reg [17:0] total;
     	wire S;
     
-    triangulo P(clk, ax, bx, cx, ay, by, cy, S);
+    triangulo P(clk, ax, bx, cx, ay, by, cy, total, S);
 always @(posedge clk) begin
-	$dumpvars(S);
 	if(py < 20) begin
 		
 		py = py+1;
